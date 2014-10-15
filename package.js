@@ -13,19 +13,23 @@ Package.onUse(function (api) {
   api.use('underscore');
   //api.use('session');
   //api.use('reload');
-  api.use('spacejamio:chai');
 
   api.use(['blaze', 'templating', 'spacebars', 'ddp', 'tracker'], 'client');
 
+  api.use(['spacejamio:loglevel', 'spacejamio:chai']);
+
   api.add_files([
-    'runner.html',
-    'Velocity.coffee',
-    'TestRunner.coffee',
-    'runner.template.coffee'
+    'client/runner.html',
+    'client/TinytestResult.coffee',
+    'client/Velocity.coffee',
+    'client/TestRunner.coffee',
+    'client/runner.template.coffee'
   ], "client");
 
   api.use('autoupdate', 'server');
   api.use('random', 'server');
-  api.add_files('autoupdate.js', 'server');
-  api.add_files('getVelocityUrl.coffee', 'server');
+  api.add_files('server/autoupdate.js', 'server');
+  api.add_files('server/getVelocityUrl.coffee', 'server');
+
+  api.export('TinytestResult', 'client');
 });
