@@ -27,7 +27,7 @@ class TestRunner
   onNewTestReport: (report)=>
     log.debug 'onNewTestReport:', report
 
-    testName = TinytestResult.getLongTestName(report)
+    testName = TinytestResult.getUniqueTestName(report)
     result = @results[testName] ?= new TinytestResult(testName, report)
     result.processEvents(report)
 

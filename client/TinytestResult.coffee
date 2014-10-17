@@ -14,7 +14,7 @@ class TinytestResult
     expect(@initialReport).to.be.an 'object'
 
 
-  @getLongTestName: (report)->
+  @getUniqueTestName: (report)->
     name = if report.server then 'S: ' else 'C: '
     name += report.groupPath.join(' - ') + ' - ' + report.test
 
@@ -22,11 +22,11 @@ class TinytestResult
   processEvents: (report)->
     expect(report).to.be.an 'object'
     expect(report.events).to.be.an.instanceof(Array) if report.events
-    failureMsg = @name
+    logMsg = @name
     for event in report.events
       expect(event.sequence).to.be.a 'number'
       expect(event.type).to.be.a 'string'
-      failureMsg += ' - event ' + event.sequence + ', type: ' + event.type
+      logMsg += ' - event ' + event.sequence + ', type: ' + event.type
       if event.type is 'fail'
         @failed = true
         @failureMsg = event.details.message if event.details?.message
@@ -39,7 +39,7 @@ class TinytestResult
         @done = true
       else if event.type is 'finish'
         @done = true
-    log.debug failureMsg
+    log.debug logMsg
     
 
   toVelocityResult: ()->
