@@ -38,12 +38,11 @@ class TestRunner
     velocity.postResult velocityResult
 
 
-  onTestsCompleted: ()->
-    console.log "TestRunner: tests completed."
+  onTestsCompleted: ->
+    log.info "test-in-velocity: all tests completed."
     @running = false
     @results = {}
-    #Tracker.flush();
-    Meteor.connection._unsubscribeAll()
+#    Meteor.connection._unsubscribeAll()
 
 
 @testRunner = TestRunner.get()
