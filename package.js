@@ -19,11 +19,9 @@ Package.onUse(function (api) {
   api.use(['spacejamio:loglevel', 'spacejamio:chai']);
 
   api.add_files([
-    'client/runner.html',
     'client/TinytestResult.coffee',
     'client/Velocity.coffee',
-    'client/TestRunner.coffee',
-    'client/runner.template.coffee'
+    'client/TestRunner.coffee'
   ], "client");
 
   api.use('autoupdate', 'server');
