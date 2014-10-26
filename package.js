@@ -18,6 +18,8 @@ Package.onUse(function (api) {
 
   api.use(['spacejamio:loglevel', 'spacejamio:chai']);
 
+  api.add_files('log.js');
+
   api.add_files([
     'client/TinytestResult.coffee',
     'client/Velocity.coffee',

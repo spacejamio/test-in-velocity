@@ -1,3 +1,4 @@
+# TODO: Handle disconnects properly by trying to reconnect faster
 class Velocity
 
   velocityUrl: null
@@ -17,7 +18,9 @@ class Velocity
       if err
         console.error 'velocity method getVelocityUrl returned an error:\n' + err
         throw err
+      else
       expect(velocityUrl, 'velocityUrl').to.be.a 'string'
+      log.info "Will report test results to #{velocityUrl}"
       @velocityUrl = velocityUrl
       @ddp = DDP.connect velocityUrl
       Tracker.autorun @onConnectionStatusChanged
