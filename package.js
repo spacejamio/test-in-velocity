@@ -16,7 +16,7 @@ Package.onUse(function (api) {
 
   api.use(['blaze', 'templating', 'spacebars', 'ddp', 'tracker'], 'client');
 
-  api.use(['spacejamio:loglevel', 'spacejamio:chai']);
+  api.use(['spacejamio:loglevel@1.1.0_2', 'spacejamio:chai']);
 
   api.add_files('log.js');
 
