@@ -39,7 +39,7 @@ class Velocity
 
 
   postResult: (result)->
-    @ddp.call 'postResult', result
+    @ddp.call 'velocity/reports/submit', result
 
 
 #  _registerTestingFramework: ()=>
@@ -51,7 +51,7 @@ class Velocity
 
 
   _resetReports: ()=>
-    @ddp.call 'resetReports', (err, data)=>
+    @ddp.call 'velocity/reports/reset', (err, data)=>
       if err
         console.error 'velocity method resetReports returned an error:\n' + err
         throw err
